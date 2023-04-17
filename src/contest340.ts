@@ -13,16 +13,19 @@ export  function diagonalPrime(nums: number[][]): number {
 };
 export function distance(nums: number[]): number[] {
     let res:number[] = []
-    const map = new Map<number,number[]>();
+    const map = new Map<number,number[][]>();
     nums.forEach((num,index)=>{
         if(map.has(num)){
             const prefixArray = map.get(num)
-            prefixArray?.push(prefixArray[prefixArray.length-1]+index)
+            prefixArray?.push([index,prefixArray[prefixArray.length-1][1]+index])
             map.set(num,prefixArray || [])
         }else{
-            map.set(num,[index])
+            map.set(num,[[index,index]])
         }
     })
-    console.log(map)
+    nums.forEach((num,index)=>{
+        if(map.get(num)?.length === 1) res.push(0)
+        
+    })
     return res
 };
