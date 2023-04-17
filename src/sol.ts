@@ -161,3 +161,7 @@ export function _2588(nums: number[]): number {
   console.log(nums);
   return res;
 }
+
+export function asdas(nums: number[]): number {
+  return 0;
+}
